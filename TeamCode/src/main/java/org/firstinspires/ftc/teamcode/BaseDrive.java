@@ -41,8 +41,13 @@ public class BaseDrive extends LinearOpMode {
 
 
 
-            ballPick();
-            ballShoot();
+            ballPick(1.0);
+            ballShoot(1.0);
+            if(gamepad2.right_bumper){
+//                reverse ball picker and shooter
+                ballPick(-1.0);
+                ballShoot(-1.0);
+            }
 
             if(gamepad1.right_bumper) {
                 oneJoystickDrive();
@@ -82,6 +87,7 @@ public class BaseDrive extends LinearOpMode {
 //            telemetry.addData("left_stick_y", "info: " + -gamepad1.left_stick_y);
 //            telemetry.addData("right_stick_y", "info: " + -gamepad1.right_stick_y);
             telemetry.addData("Status", "gamepad1.right_bumper: " + gamepad1.right_bumper);
+            telemetry.addData("Status", "gamepad2.right_bumper: " + gamepad2.right_bumper);
 
             // Use gamepad left & right Bumpers to open and close the claw
             // if (gamepad1.right_bumper)
@@ -121,23 +127,25 @@ public class BaseDrive extends LinearOpMode {
 
             telemetry.update();
 
+
+
             // Pause for metronome tick. 40 mS each cycle = update 25 times a
             // second.
             robot.waitForTick(40);
         }
     }
 
-    private void ballShoot() {
-        if (gamepad1.y)
-            robot.ballShooter.setPower(1.0);
+    private void ballShoot(double power) {
+        if (gamepad2.y)
+            robot.ballShooter.setPower(power);
         else
             robot.ballShooter.setPower(0);
 
     }
 
-    private void ballPick() {
-        if (gamepad1.a) {
-            robot.ballPicker.setPower(1.0);
+    private void ballPick(double power) {
+        if (gamepad2.a) {
+            robot.ballPicker.setPower(power);
         } else
             robot.ballPicker.setPower(0);
 
