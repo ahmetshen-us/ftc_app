@@ -15,10 +15,10 @@ public class FTCRobotHardware {
     public DcMotor rightMotor = null;
     public DcMotor ballPicker = null;
     public DcMotor ballShooter = null;
-    public DcMotor leftArmMotor = null;
-    public DcMotor rightArmMotor = null;
-    public Servo leftClaw = null;
-    public Servo rightClaw = null;
+//    public DcMotor leftArmMotor = null;
+//    public DcMotor rightArmMotor = null;
+//    public Servo leftClaw = null;
+//    public Servo rightClaw = null;
 
     public static final double MID_SERVO = 0.5;
     public static final double ARM_UP_POWER = 0.45;

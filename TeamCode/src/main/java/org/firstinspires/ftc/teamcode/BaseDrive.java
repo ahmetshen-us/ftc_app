@@ -135,7 +135,7 @@ public class BaseDrive extends LinearOpMode {
         }
     }
 
-    private void ballShoot(double power) {
+    protected void ballShoot(double power) {
         if (gamepad2.y)
             robot.ballShooter.setPower(power);
         else
